@@ -42,13 +42,15 @@ def close_all(device):
     for _ in range(10):
         device.swipe(500, 500, 500, 0, steps=10)
         sleep(1)
+    device.press.home()
 
 
 def install_app(device):
     device(text="Play Store").click()
-    # Waits till there is a screen update
+    # Wait till there is a screen update
     device.wait.update()
-    sleep(3)
+    # Wait for Play Store
+    sleep(10)
     
     # Search the app
     device(text="Search for apps & games").set_text('todoist')
